@@ -6,6 +6,71 @@
   height: 40vmin;
   pointer-events: none;
 }
+/* Fade-in effect for headings */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+/* Scale-up effect for headings */
+@keyframes scaleUp {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-scale-up {
+  animation: scaleUp 0.8s ease-in-out;
+}
+
+/* Slide-in effect for category buttons */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in {
+  animation: slideIn 0.8s ease-in-out;
+}
+
+/* Fade-in effect for books */
+@keyframes fadeInBooks {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-books {
+  animation: fadeInBooks 0.8s ease-in-out;
+}
+
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

@@ -1,6 +1,9 @@
 import React, { useEffect } from "react";
 import "./Home.css";
 import { useNavigate } from "react-router-dom";
+import More from "./More";
+import Categories from "./Categories";
+import Contact from "./Contact";
 
 function Home() {
   const navigate = useNavigate();
@@ -34,36 +37,23 @@ function Home() {
           </p>
           <button
             className="mt-6 py-3 px-6 opacity-80 bg-gray-600 text-white font-semibold rounded-lg shadow-md transition-transform transform hover:scale-105 hover:bg-gray-700 hover:opacity-90"
-            onClick={() => { navigate('/bookspage'); }}
+            onClick={() => {
+              navigate("/bookspage");
+            }}
           >
             Explore Now!
           </button>
         </div>
       </div>
-
-      {/* Example Sections */}
-      <section id="more" className="my-10 p-4 text-center">
-        <h2 className="text-3xl font-bold text-white">More Section</h2>
-        <p className="text-gray-400">Content for the More section...</p>
+      <section id="categories">
+        <Categories />
       </section>
-      <section id="categories" className="my-10 p-4 text-center">
-        <h2 className="text-3xl font-bold text-white">Categories Section</h2>
-        <p className="text-gray-400">Content for the Categories section...</p>
+      <section id="more">
+        <More />
       </section>
-      <section id="blog" className="my-10 p-4 text-center">
-        <h2 className="text-3xl font-bold text-white">Blog Section</h2>
-        <p className="text-gray-400">Content for the Blog section...</p>
-      </section>
-      <section id="pages" className="my-10 p-4 text-center">
-        <h2 className="text-3xl font-bold text-white">Pages Section</h2>
-        <p className="text-gray-400">Content for the Pages section...</p>
-      </section>
-      <section id="others" className="my-10 p-4 text-center">
-        <h2 className="text-3xl font-bold text-white">Others Section</h2>
-        <p className="text-gray-400">Content for the Others section...</p>
-      </section>
-
-      {/* Scroll to Top Button */}
+      <section id="contact">
+        <Contact />
+      </section>{" "}
       <button
         onClick={scrollToTop}
         className="fixed w-12 h-12 text-2xl bottom-4 right-4 bg-gray-700 text-white mb-2 mr-6 rounded-full shadow-lg hover:bg-gray-800 transition-all ease-in-out"
