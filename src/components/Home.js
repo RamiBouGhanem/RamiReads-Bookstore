@@ -4,11 +4,12 @@ import { useNavigate } from "react-router-dom";
 import More from "./More";
 import Categories from "./Categories";
 import Contact from "./Contact";
+import Header from "./Header";
 
 function Home() {
   const navigate = useNavigate();
 
-  // Function to scroll to the top smoothly
+  // Function to scroll to the top smoothly 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -20,6 +21,7 @@ function Home() {
 
   return (
     <>
+          <Header />
       <div className="video-container mt-0">
         <video autoPlay loop muted className="video-background">
           <source src="/4873467-uhd_4096_2160_25fps.mp4" type="video/mp4" />

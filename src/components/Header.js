@@ -6,8 +6,9 @@ const Header = () => {
   const [isTransparent, setIsTransparent] = useState(false);
 
   const navigate = useNavigate();
+
   const handleScroll = () => {
-    setIsTransparent(window.scrollY > 5);
+    setIsTransparent(window.scrollY > 5); // if (greater than 5) --> true --> transparent (otherwise, it is false!)
   };
 
   useEffect(() => {
@@ -18,19 +19,19 @@ const Header = () => {
   }, []);
 
   const scrollToSection = (id) => {
-    const section = document.getElementById(id);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
+    const section = document.getElementById(id);      // Ids will be taken when clicking on navlinks!
+    if (section) {                                    // it is used for 'others' links so clicking on it will do nothing!
+      section.scrollIntoView({ behavior: "smooth" }); // contact.scrollIntoView --> will be scrolled into it (viewed as a screen).
     }
   };
 
   return (
     <header
-      className={`pl-16 bg-black shadow-md py-6 pr-8 flex items-center space-x-24 ease-in-out ${
-        isTransparent ? "bg-black opacity-90" : "bg-black backdrop-blur-lg"
+      className={`pl-16 bg-zinc-950 shadow-md py-6 pr-8 flex items-center space-x-24 ease-in-out ${
+        isTransparent ? "bg-zinc-950 opacity-90" : "bg-black backdrop-blur-lg"
       }`}
     >
-      <h1 className="text-4xl font-bold text-white tracking-wider mb-2 flex-col pr-0">
+      <h1 className="text-4xl font-bold text-white tracking-wider mb-2 flex-col pr-0 ml-20 mr-8">
         <span className="text-red-400">R</span>@mi
         <span className="text-red-600 font-extrabold tracking-tight">
           Reads

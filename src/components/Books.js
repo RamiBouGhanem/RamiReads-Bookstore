@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+import Header from './Header';
 
 const BooksPage = () => {
   const [searchBook, setSearchBook] = useState('');
+  const [searchType, setSearchType] = useState('title');
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-  const [searchType, setSearchType] = useState('title'); // New state for search type
 
   const searchButtonClicked = async () => {
     if (!searchBook) {
@@ -17,9 +18,9 @@ const BooksPage = () => {
     setError('');
 
     try {
-      const response = await fetch(`https://openlibrary.org/search.json?${searchType}=${searchBook}`);
+      const response = await fetch(`https://openlibrary.org/search.json?${searchType}=${searchBook}`);  // it can be author so author equals author's name, and it can be title so it matches the book
       if (!response.ok) {
-        throw new Error('Failed to fetch books. Please try again later.');
+        // throw new Error('Failed to fetch books. Please try again later.');
       }
       const data = await response.json();
       setBooks(data.docs);
@@ -31,11 +32,12 @@ const BooksPage = () => {
   };
 
   return (
+    <>      
+        <Header />
     <div className="books-page min-h-screen p-6 bg-gradient-to-br from-black to-gray-800">
       <h1 className="text-5xl text-center my-4 text-gray-300">Discover Your Next Read</h1>
       <p className="text-center text-gray-400 mb-4">Enter a book title or author name in the search bar below to find your next favorite book!</p>
       
-      {/* Search Form */}
       <form className="flex justify-center mb-6">
         <input
           type="text"
@@ -92,6 +94,7 @@ const BooksPage = () => {
         ))}
       </div>
     </div>
+    </>
   );
 };
 

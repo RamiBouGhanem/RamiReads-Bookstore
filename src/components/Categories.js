@@ -64,7 +64,7 @@ const Categories = () => {
   }, []);
 
   return (
-    <div ref={categoriesRef} className="p-8 bg-gradient-to-b from-gray-800 via-gray-900 to-black text-white min-h-screen pt-32">
+    <div ref={categoriesRef} className="p-8 bg-gradient-to-b from-gray-900 via-gray-950 to-black text-white min-h-screen pt-32">
       <h2 className={`text-4xl font-bold pb-8 text-center ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
         <span className={`text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-800 to-green-600 ${isVisible ? 'animate-scale-up' : 'opacity-0'}`}>
           Browse
