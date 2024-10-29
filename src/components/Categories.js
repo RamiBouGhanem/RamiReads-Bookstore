@@ -18,7 +18,7 @@ const Categories = () => {
   // Fetch books based on the selected category from Open Library API
   const fetchBooks = async (category) => {
     try {
-      const response = await fetch(`https://openlibrary.org/subjects/${category.toLowerCase()}.json`);
+      const response = await fetch(`https://openlibrary.org/subjects/${category.toLowerCase()}.json`);  // searching for books of the same category
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }

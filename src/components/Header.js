@@ -27,64 +27,39 @@ const Header = () => {
 
   return (
     <header
-      className={`pl-16 bg-zinc-950 shadow-md py-6 pr-8 flex items-center space-x-24 ease-in-out ${
-        isTransparent ? "bg-zinc-950 opacity-90" : "bg-black backdrop-blur-lg"
-      }`}
-    >
-      <h1 className="text-4xl font-bold text-white tracking-wider mb-2 flex-col pr-0 ml-20 mr-8">
-        <span className="text-red-400">R</span>@mi
-        <span className="text-red-600 font-extrabold tracking-tight">
-          Reads
-        </span>
-        <p className="text-lg text-gray-300 font-light italic">
-          Your gateway to great stories
-        </p>
-      </h1>
+  className={`pl-16 pr-8 py-6 flex items-center space-x-24 ${
+    isTransparent ? "bg-zinc-950 opacity-90" : "bg-black backdrop-blur-lg"
+  }`}
+>
+  <h1 className="text-4xl font-bold text-white tracking-wider ml-20 mr-8">
+    <span className="text-red-400">R</span>@mi
+    <span className="text-red-600 font-extrabold tracking-tight">Reads</span>
+    <p className="text-lg text-gray-300 font-light italic">
+      Your gateway to great stories
+    </p>
+  </h1>
 
-      <nav className="flex space-between items-center ml-0 md:flex space-x-12">
+  <nav className="flex items-center space-x-12">
+    {[
+      { icon: <FaHeart />, label: "Categories", id: "categories" },
+      { icon: <FaBookOpen />, label: "More", id: "more" },
+      { icon: <FaPhone />, label: "Contact", id: "contact" },
+      { icon: <FaUser />, label: "Sign In", onClick: () => navigate("/loginpage") },
+      { icon: <FaShoppingCart />, label: "Others" }
+    ].map((item, index) => (
       <li
-          className="text-gray-600 hover:text-gray-800 list-none text-xl cursor-pointer flex items-center"
-          onClick={() => scrollToSection("categories")}
-        >
-          <FaHeart className="mr-2" />
-          Categories
-        </li>
-        <li
-          className="text-gray-600 hover:text-gray-800 list-none text-xl cursor-pointer flex items-center"
-          onClick={() => scrollToSection("more")}
-        >
-          <FaBookOpen className="mr-2" />
-          More
-        </li>
-        <li
-          className="text-gray-600 hover:text-gray-800 list-none text-xl cursor-pointer flex items-center"
-          onClick={() => scrollToSection("contact")}
-        >
-          <FaPhone className="mr-2"/>
-          Contact
-        </li>
-        <li
-          className="text-gray-600 hover:text-gray-800 list-none text-xl cursor-pointer flex items-center"
-          onClick={() => {
-            navigate("/loginpage");
-          }}
-        >
-          <FaUser className="mr-2" />
-          Sign In
-        </li>
-        <li className="text-gray-600 hover:text-gray-800 list-none text-xl cursor-pointer flex items-center">
-          <FaShoppingCart className="mr-2" />
-          Others
-        </li>
-      </nav>
-      {/* <div className="hidden md:flex">
-        <input
-          type="text"
-          placeholder="Search..."
-          className="px-4 py-2 border border-gray-500 bg-gray-100 rounded-md"
-        />
-      </div> */}
-    </header>
+        key={index}
+        className="text-gray-600 hover:text-gray-800 list-none text-xl cursor-pointer flex items-center"
+        onClick={item.onClick || (() => scrollToSection(item.id))}
+        aria-label={item.label}
+      >
+        {item.icon}
+        <span className="ml-2">{item.label}</span>
+      </li>
+    ))}
+  </nav>
+</header>
+
   );
 };
 

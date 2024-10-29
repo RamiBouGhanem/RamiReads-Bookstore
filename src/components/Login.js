@@ -76,8 +76,8 @@ const Login = () => {
 
           <button
             type="submit"
-            onSubmit={loginButtonClicked}
             className="w-full py-3 mt-4 text-white bg-blue-600 rounded-full hover:bg-blue-700 transform hover:-translate-y-1 transition-all duration-300 shadow-lg"
+            onClick={loginButtonClicked}
           >
             Login
           </button>
